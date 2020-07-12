@@ -1,0 +1,36 @@
+<!-- begin of bmfile main block -->
+<{* $Id: bmfile_view.html,v 0.01 2004/10/24 08:49:00 Y.Sakai Exp $ *}>
+<center>
+<table class=outer cellSpacing=1 width="100%"><TBODY>
+	<TR><TH colspan="3" align="middle" height="20"><{$lang_title}></TH></TR>
+	<tr>
+	<td><a href='<{$thumb_url}>'><{$lang_url_thumb}></a></td>
+	<td><a href='<{$img_url}>'><{$lang_url_image}></a></td>
+	<td><a href='<{$attach_url}>'><{$lang_url_attach}></a></td>
+	</tr>
+</TBODY></TABLE><br>
+<table class=outer cellSpacing=1 width="100%"><tr> 
+	<th class=header height="20"><{$lang_list_image}></th>
+	<th class=header ><{$lang_list_filename}></th>
+	<th class=header ><{$lang_list_filesize}></th>
+	<th class=header ><{$lang_list_filetype}></th>
+	<th class=header ><{$lang_list_filedate}></th>
+	<th class=header ><{$lang_list_delete}></th>
+	</tr>
+
+<{foreach item=file_user from=$content}>
+  <tr class="<{cycle values="even,odd"}>">
+    <td><{$file_user.img_link}></td>
+    <td align="left"><a href='<{$file_user.file_link}>' target="_blank"><{$file_user.filename}></a></td>
+    <td align="right"><{$file_user.filesize}></td>
+    <td><{$file_user.fileicon}></td>
+    <td><{$file_user.timestamp}></td>
+    <td><{$file_user.deletelink}></td>
+  </tr>
+<{/foreach}>
+<tr>
+<td align="right" valign="bottom" colspan="5"><font size="-1">bmfile v<{$version}> by 
+<a href="http://www.bluemooninc.biz/" target="_blank"> Bluemoon inc. 2004</a>
+</font>
+</td></tr>
+</table>
